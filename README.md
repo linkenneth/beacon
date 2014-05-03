@@ -7,8 +7,9 @@
 ~~~
 ========
 
+Beacon is a new way to scream!
+
+
 Mobile app : https://github.com/sqwerl/csuahack
 
 Web server : https://github.com/linkenneth/beacon-server
-
-Beacon is a new way to scream!
