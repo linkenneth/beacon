@@ -239,11 +239,11 @@
         region = nil;
         if(self.uuid && self.major && self.minor)
         {
-            region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid major:[self.major shortValue] minor:[self.minor shortValue] identifier:BeaconIdentifier];
+            region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid major:[self.major unsignedShortValue] minor:[self.minor shortValue] identifier:BeaconIdentifier];
         }
         else if(self.uuid && self.major)
         {
-            region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid major:[self.major shortValue]  identifier:BeaconIdentifier];
+            region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid major:[self.major unsignedShortValue]  identifier:BeaconIdentifier];
         }
         else if(self.uuid)
         {

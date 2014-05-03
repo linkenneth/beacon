@@ -118,9 +118,9 @@ CLBeaconRegion *region = nil;
 //    }
     // We must construct a CLBeaconRegion that represents the payload we want the device to beacon.
     
-    NSNumber *majorNum = [NSNumber numberWithShort:(arc4random() & 0xFFFF)];
-    NSNumber *minorNum = [NSNumber numberWithShort:(arc4random() & 0xFFFF)];
-    region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid major:[majorNum shortValue] minor:[minorNum shortValue] identifier:BeaconIdentifier];
+    NSNumber *majorNum = [NSNumber numberWithShort:(uint16_t) arc4random()];
+    NSNumber *minorNum = [NSNumber numberWithShort:(uint16_t) arc4random()];
+    region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid major:[majorNum unsignedShortValue] minor:[minorNum unsignedShortValue] identifier:BeaconIdentifier];
     
 //    int msgId = [majorNum intValue] << 16 | [minorNum intValue];
     
@@ -131,7 +131,7 @@ CLBeaconRegion *region = nil;
     
     
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://beacon-of-hope-server.herokuapp.com/%@", msgIdNum]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://beacon-of-hope-server.herokuapp.com/%u", [msgIdNum unsignedShortValue]]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];

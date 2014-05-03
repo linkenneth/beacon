@@ -98,7 +98,7 @@
             
             if (![self.messagesSeen containsObject:msgIdNum]) {
                 NSURLSession *session = [NSURLSession sharedSession];
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://beacon-of-hope-server.herokuapp.com/%@", msgIdNum]];
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://beacon-of-hope-server.herokuapp.com/%u", [msgIdNum unsignedShortValue]]];
                 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                                        cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
                 
