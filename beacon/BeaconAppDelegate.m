@@ -44,7 +44,7 @@
     
     if(state == CLRegionStateInside)
     {
-        notification.alertBody = [NSString stringWithFormat:@"%@", msgIdNum];
+        notification.alertBody = [NSString stringWithFormat:@"%d", msgIdNum];
     }
     else
     {
