@@ -49,7 +49,7 @@ CLBeaconRegion *region = nil;
     self.numberFormatter = [[NSNumberFormatter alloc] init];
     self.numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
     
-    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:BeaconIdentifier];
+    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"] identifier:BeaconIdentifier];
     region = [self.locationManager.monitoredRegions member:region];
     if(region)
     {
@@ -125,7 +125,7 @@ CLBeaconRegion *region = nil;
 - (void)updateMonitoredRegion
 {
     // if region monitoring is enabled, update the region being monitored
-    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:BeaconIdentifier];
+    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"] identifier:BeaconIdentifier];
     
     if(region != nil)
     {
@@ -147,7 +147,7 @@ CLBeaconRegion *region = nil;
     }
     else
     {
-        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:BeaconIdentifier];
+        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"] identifier:BeaconIdentifier];
         [self.locationManager stopMonitoringForRegion:region];
     }
 }
