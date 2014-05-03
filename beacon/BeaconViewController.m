@@ -110,10 +110,26 @@ CLBeaconRegion *region = nil;
 
 - (IBAction)buttonPressed:(UIButton *)sender
 {
-    self.sendEnabled = YES;
-  
-    self.sendEnabled = NO;
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(updateAdvertisedRegion) userInfo:nil repeats:NO];
+//    if (self.sendEnabled) {
+//        self.sendEnabled = NO;
+//    } else {
+//        self.sendEnabled = YES;
+//    }
+    // We must construct a CLBeaconRegion that represents the payload we want the device to beacon.
+    NSDictionary *peripheralData = nil;
+    
+    NSNumber *majorNum = [NSNumber numberWithShort:(arc4random() % 0xFFFF)];
+    NSNumber *minorNum = [NSNumber numberWithShort:(arc4random() % 0xFFFF)];
+    region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid major:[majorNum shortValue] minor:[minorNum shortValue] identifier:BeaconIdentifier];
+    peripheralData = [region peripheralDataWithMeasuredPower:[BeaconDefaults sharedDefaults].defaultPower];
+    
+    // The region's peripheral data contains the CoreBluetooth-specific data we need to advertise.
+    if(peripheralData)
+    {
+        [peripheralManager startAdvertising:peripheralData];
+    }
+    
+    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(stopUpdateAdvertisedRegion) userInfo:nil repeats:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,7 +168,7 @@ CLBeaconRegion *region = nil;
     }
 }
 
-- (void)updateAdvertisedRegion
+- (void)stopUpdateAdvertisedRegion
 {
     if(peripheralManager.state < CBPeripheralManagerStatePoweredOn)
     {
@@ -167,22 +183,10 @@ CLBeaconRegion *region = nil;
     
 	[peripheralManager stopAdvertising];
     
-    if(self.sendEnabled)
-    {
-        // We must construct a CLBeaconRegion that represents the payload we want the device to beacon.
-        NSDictionary *peripheralData = nil;
-        
-        NSNumber *majorNum = [NSNumber numberWithShort:(arc4random() % 0xFFFF)];
-        NSNumber *minorNum = [NSNumber numberWithShort:(arc4random() % 0xFFFF)];
-        region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid major:[majorNum shortValue] minor:[minorNum shortValue] identifier:BeaconIdentifier];
-        peripheralData = [region peripheralDataWithMeasuredPower:[BeaconDefaults sharedDefaults].defaultPower];
-        
-        // The region's peripheral data contains the CoreBluetooth-specific data we need to advertise.
-        if(peripheralData)
-        {
-            [peripheralManager startAdvertising:peripheralData];
-        }
-    }
+//    if(self.sendEnabled)
+//    {
+//        
+//    }
 }
 
 @end

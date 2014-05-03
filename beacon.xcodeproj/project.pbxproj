@@ -398,6 +398,7 @@
 				GCC_PREFIX_HEADER = "beacon/beacon-Prefix.pch";
 				INFOPLIST_FILE = "beacon/beacon-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C09DBE9C-1095-4470-8381-78CC3E97439B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -411,6 +412,7 @@
 				GCC_PREFIX_HEADER = "beacon/beacon-Prefix.pch";
 				INFOPLIST_FILE = "beacon/beacon-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C09DBE9C-1095-4470-8381-78CC3E97439B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
