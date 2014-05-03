@@ -30,9 +30,10 @@ CLBeaconRegion *region = nil;
 @property (nonatomic, weak) IBOutlet UISwitch *listenEnabledSwitch;
 @property (nonatomic, weak) IBOutlet UIButton *bob;
 
+
 - (void)updateMonitoredRegion;
 
-- (void)updateAdvertisedRegion;
+//- (void)updateAdvertisedRegion;
 
 @end
 
@@ -116,20 +117,52 @@ CLBeaconRegion *region = nil;
 //        self.sendEnabled = YES;
 //    }
     // We must construct a CLBeaconRegion that represents the payload we want the device to beacon.
-    NSDictionary *peripheralData = nil;
     
-    NSNumber *majorNum = [NSNumber numberWithShort:(arc4random() % 0xFFFF)];
-    NSNumber *minorNum = [NSNumber numberWithShort:(arc4random() % 0xFFFF)];
+    NSNumber *majorNum = [NSNumber numberWithShort:(arc4random() & 0xFFFF)];
+    NSNumber *minorNum = [NSNumber numberWithShort:(arc4random() & 0xFFFF)];
     region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid major:[majorNum shortValue] minor:[minorNum shortValue] identifier:BeaconIdentifier];
-    peripheralData = [region peripheralDataWithMeasuredPower:[BeaconDefaults sharedDefaults].defaultPower];
     
-    // The region's peripheral data contains the CoreBluetooth-specific data we need to advertise.
-    if(peripheralData)
-    {
-        [peripheralManager startAdvertising:peripheralData];
-    }
+//    int msgId = [majorNum intValue] << 16 | [minorNum intValue];
     
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(stopUpdateAdvertisedRegion) userInfo:nil repeats:NO];
+//    NSNumber *msgIdNum = [NSNumber numberWithInt:msgId];
+    NSNumber *msgIdNum = majorNum;
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://beacon-of-hope-server.herokuapp.com/%@", msgIdNum]];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    
+    
+    NSString *postString = [NSString stringWithFormat:@"value=%@", @"hello"];
+    
+    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSDictionary *peripheralData = [region peripheralDataWithMeasuredPower:[BeaconDefaults sharedDefaults].defaultPower];
+            
+            // The region's peripheral data contains the CoreBluetooth-specific data we need to advertise.
+            if(peripheralData)
+            {
+                [peripheralManager startAdvertising:peripheralData];
+            }
+            
+            
+            [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(stopUpdateAdvertisedRegion) userInfo:nil repeats:NO];
+
+        });
+        
+    }] resume];
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -159,6 +192,7 @@ CLBeaconRegion *region = nil;
             region.notifyEntryStateOnDisplay = self.notifyOnDisplay;
             
             [self.locationManager startMonitoringForRegion:region];
+
         }
     }
     else

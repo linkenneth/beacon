@@ -54,7 +54,7 @@
 
 @interface BeaconMonitoringViewController () <CLLocationManagerDelegate, UITextFieldDelegate>
 
-@property (nonatomic, weak) IBOutlet UISwitch *enabledSwitch;
+//@property (nonatomic, weak) IBOutlet UISwitch *enabledSwitch;
 
 @property (nonatomic, weak) IBOutlet UITextField *uuidTextField;
 
@@ -129,7 +129,7 @@
     
     self.uuidTextField.text = [self.uuid UUIDString];
     
-    self.enabledSwitch.on = self.enabled;
+//    self.enabledSwitch.on = self.enabled;
     self.notifyOnEntrySwitch.on = self.notifyOnEntry;
     self.notifyOnExitSwitch.on = self.notifyOnExit;
     self.notifyOnDisplaySwitch.on = self.notifyOnDisplay;
