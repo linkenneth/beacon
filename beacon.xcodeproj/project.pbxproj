@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46E8899A1915414200A3F2DC /* blue_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889931915414200A3F2DC /* blue_asset.png */; };
+		46E8899B1915414200A3F2DC /* button_03_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889941915414200A3F2DC /* button_03_asset.png */; };
+		46E8899C1915414200A3F2DC /* green_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889951915414200A3F2DC /* green_asset.png */; };
+		46E8899D1915414200A3F2DC /* orange_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889961915414200A3F2DC /* orange_asset.png */; };
+		46E8899E1915414200A3F2DC /* pink_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889971915414200A3F2DC /* pink_asset.png */; };
+		46E8899F1915414200A3F2DC /* purple_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889981915414200A3F2DC /* purple_asset.png */; };
+		46E889A01915414200A3F2DC /* yellow_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889991915414200A3F2DC /* yellow_asset.png */; };
 		D768598C1914BB9300ACCADA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598B1914BB9300ACCADA /* Foundation.framework */; };
 		D768598E1914BB9300ACCADA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598D1914BB9300ACCADA /* CoreGraphics.framework */; };
 		D76859901914BB9300ACCADA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598F1914BB9300ACCADA /* UIKit.framework */; };
@@ -37,6 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46E889931915414200A3F2DC /* blue_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_asset.png; sourceTree = "<group>"; };
+		46E889941915414200A3F2DC /* button_03_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_03_asset.png; sourceTree = "<group>"; };
+		46E889951915414200A3F2DC /* green_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_asset.png; sourceTree = "<group>"; };
+		46E889961915414200A3F2DC /* orange_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange_asset.png; sourceTree = "<group>"; };
+		46E889971915414200A3F2DC /* pink_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_asset.png; sourceTree = "<group>"; };
+		46E889981915414200A3F2DC /* purple_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple_asset.png; sourceTree = "<group>"; };
+		46E889991915414200A3F2DC /* yellow_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_asset.png; sourceTree = "<group>"; };
 		D76859881914BB9300ACCADA /* beacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D768598B1914BB9300ACCADA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D768598D1914BB9300ACCADA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,6 +135,13 @@
 		D76859911914BB9300ACCADA /* beacon */ = {
 			isa = PBXGroup;
 			children = (
+				46E889931915414200A3F2DC /* blue_asset.png */,
+				46E889941915414200A3F2DC /* button_03_asset.png */,
+				46E889951915414200A3F2DC /* green_asset.png */,
+				46E889961915414200A3F2DC /* orange_asset.png */,
+				46E889971915414200A3F2DC /* pink_asset.png */,
+				46E889981915414200A3F2DC /* purple_asset.png */,
+				46E889991915414200A3F2DC /* yellow_asset.png */,
 				D768599A1914BB9300ACCADA /* BeaconAppDelegate.h */,
 				D768599B1914BB9300ACCADA /* BeaconAppDelegate.m */,
 				D76859C31914DB4200ACCADA /* BeaconCalibrationCalculator.h */,
@@ -243,8 +264,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46E8899A1915414200A3F2DC /* blue_asset.png in Resources */,
 				D76859A41914BB9300ACCADA /* Images.xcassets in Resources */,
+				46E8899E1915414200A3F2DC /* pink_asset.png in Resources */,
 				D76859961914BB9300ACCADA /* InfoPlist.strings in Resources */,
+				46E889A01915414200A3F2DC /* yellow_asset.png in Resources */,
+				46E8899D1915414200A3F2DC /* orange_asset.png in Resources */,
+				46E8899B1915414200A3F2DC /* button_03_asset.png in Resources */,
+				46E8899C1915414200A3F2DC /* green_asset.png in Resources */,
+				46E8899F1915414200A3F2DC /* purple_asset.png in Resources */,
 				D768599F1914BB9300ACCADA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
