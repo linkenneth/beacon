@@ -8,6 +8,9 @@
 #include <stdlib.h>
 #import "BeaconViewController.h"
 #import "BeaconDefaults.h"
+#import "SettingsView.h"
+#import "MessagesViewController.h"
+#import "UIImage+ColorAtPixel.h"
 
 @import CoreLocation;
 @import CoreBluetooth;
@@ -24,12 +27,15 @@ CLBeaconRegion *region = nil;
 @property BOOL notifyOnExit;
 @property BOOL notifyOnDisplay;
 
+@property BOOL settingsControlOpen;
+
 @property (nonatomic) NSNumberFormatter *numberFormatter;
 @property (nonatomic) CLLocationManager *locationManager;
 
-@property (nonatomic, weak) IBOutlet UISwitch *listenEnabledSwitch;
 @property (nonatomic, weak) IBOutlet UIButton *bob;
 
+
+@property (nonatomic, strong) SettingsView *settingsView;
 
 - (void)updateMonitoredRegion;
 
@@ -44,11 +50,47 @@ CLBeaconRegion *region = nil;
 {
     [super viewDidLoad];
     
+    self.settingsControlOpen = NO;
+    
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showSettings:)];
+    swipe.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    [self.view addGestureRecognizer:swipe];
+    
+    
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft
+    ;
+    
+    [self.view addGestureRecognizer:swipeLeft];
+
+    
+    NSArray *xibArray = [[NSBundle mainBundle] loadNibNamed:@"SettingsView" owner:nil options:nil];
+    for (id xibObject in xibArray) {
+        //Loop through array, check for the object we're interested in.
+        if ([xibObject isKindOfClass:[SettingsView class]]) {
+            //Use casting to cast (id) to (MyCustomView *)
+            self.settingsView = (SettingsView *)xibObject;
+        }
+    }
+    
+    self.view.backgroundColor = [self.settingsView.blueButton.imageView.image colorAtPixel:CGPointMake(5, 5)];
+    
+    self.settingsView.frame = CGRectMake(-self.view.bounds.size.
+                                         width, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    
+    self.settingsView.parent = self;
+    [self.view addSubview:self.settingsView];
+    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
     self.numberFormatter = [[NSNumberFormatter alloc] init];
     self.numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    
+    self.textField.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.6];
+    
+
     
     CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"] identifier:BeaconIdentifier];
     region = [self.locationManager.monitoredRegions member:region];
@@ -72,6 +114,33 @@ CLBeaconRegion *region = nil;
     
     [self updateMonitoredRegion];
     //self.doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneEditing:)];
+    
+    
+    
+}
+
+- (void)swipeLeft:(UISwipeGestureRecognizer*)recognizer {
+    
+    if (self.settingsControlOpen) {
+        [UIView animateWithDuration:.5 animations:^{
+            self.settingsView.frame = CGRectMake(-self.view.bounds.size.width, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+        }];
+        
+        self.settingsControlOpen = NO;
+    } else {
+        MessagesViewController *messageViewController = [[MessagesViewController alloc] initWithStyle:UITableViewStylePlain];
+        
+        [self.navigationController pushViewController:messageViewController animated:YES];
+    }
+}
+
+
+- (void)showSettings:(UISwipeGestureRecognizer*)recognizer {
+    [UIView animateWithDuration:.5 animations:^{
+        self.settingsView.frame = CGRectMake(-self.view.bounds.size.width/2, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    }];
+    
+    self.settingsControlOpen = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -113,7 +182,24 @@ CLBeaconRegion *region = nil;
     [self updateMonitoredRegion];
 }
 
-- (IBAction)buttonPressed:(UIButton *)sender
+
+- (IBAction)buttonPressed:(id)sender {
+    self.textField.alpha = 0;
+    self.textField.hidden = NO;
+    [UIView animateWithDuration:1 animations:^{
+        self.textField.alpha = 1;
+    }];
+    
+    [self.textField becomeFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self sendMessage];
+    [self.textField discardMessage];
+    return YES;
+}
+
+- (void)sendMessage
 {
 //    if (self.sendEnabled) {
 //        self.sendEnabled = NO;
@@ -143,7 +229,7 @@ CLBeaconRegion *region = nil;
     [request setHTTPMethod:@"POST"];
     
     
-    NSString *postString = [NSString stringWithFormat:@"value=%@", @"hello"];
+    NSString *postString = [NSString stringWithFormat:@"value=%@", self.textField.text];
     
     [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -225,6 +311,10 @@ CLBeaconRegion *region = nil;
 //    {
 //        
 //    }
+}
+
+- (void)changeBackgroundColorTo:(UIColor *)color {
+    self.view.backgroundColor = color;
 }
 
 @end

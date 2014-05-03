@@ -15,6 +15,10 @@
 		46E8899F1915414200A3F2DC /* purple_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889981915414200A3F2DC /* purple_asset.png */; };
 		46E889A01915414200A3F2DC /* yellow_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889991915414200A3F2DC /* yellow_asset.png */; };
 		46E889A31915430900A3F2DC /* SettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E889A21915430900A3F2DC /* SettingsView.m */; };
+		46E889A51915449900A3F2DC /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46E889A41915449900A3F2DC /* SettingsView.xib */; };
+		46E889A819154A6E00A3F2DC /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E889A719154A6E00A3F2DC /* MessagesViewController.m */; };
+		46E889AB19154EBB00A3F2DC /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E889AA19154EBB00A3F2DC /* UIImage+ColorAtPixel.m */; };
+		46E889AE19155B5600A3F2DC /* MessageTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E889AD19155B5600A3F2DC /* MessageTextField.m */; };
 		D768598C1914BB9300ACCADA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598B1914BB9300ACCADA /* Foundation.framework */; };
 		D768598E1914BB9300ACCADA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598D1914BB9300ACCADA /* CoreGraphics.framework */; };
 		D76859901914BB9300ACCADA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598F1914BB9300ACCADA /* UIKit.framework */; };
@@ -54,6 +58,13 @@
 		46E889991915414200A3F2DC /* yellow_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_asset.png; sourceTree = "<group>"; };
 		46E889A11915430900A3F2DC /* SettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsView.h; sourceTree = "<group>"; };
 		46E889A21915430900A3F2DC /* SettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsView.m; sourceTree = "<group>"; };
+		46E889A41915449900A3F2DC /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
+		46E889A619154A6E00A3F2DC /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		46E889A719154A6E00A3F2DC /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
+		46E889A919154EBB00A3F2DC /* UIImage+ColorAtPixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorAtPixel.h"; sourceTree = "<group>"; };
+		46E889AA19154EBB00A3F2DC /* UIImage+ColorAtPixel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorAtPixel.m"; sourceTree = "<group>"; };
+		46E889AC19155B5600A3F2DC /* MessageTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTextField.h; sourceTree = "<group>"; };
+		46E889AD19155B5600A3F2DC /* MessageTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTextField.m; sourceTree = "<group>"; };
 		D76859881914BB9300ACCADA /* beacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D768598B1914BB9300ACCADA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D768598D1914BB9300ACCADA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,10 +165,17 @@
 				D76859C01914DA3B00ACCADA /* BeaconDefaults.h */,
 				D76859C11914DA3B00ACCADA /* BeaconDefaults.m */,
 				D768599D1914BB9300ACCADA /* Main.storyboard */,
+				46E889A619154A6E00A3F2DC /* MessagesViewController.h */,
+				46E889A719154A6E00A3F2DC /* MessagesViewController.m */,
 				D76859A01914BB9300ACCADA /* BeaconViewController.h */,
+				D76859A11914BB9300ACCADA /* BeaconViewController.m */,
+				46E889AC19155B5600A3F2DC /* MessageTextField.h */,
+				46E889AD19155B5600A3F2DC /* MessageTextField.m */,
+				46E889A919154EBB00A3F2DC /* UIImage+ColorAtPixel.h */,
+				46E889AA19154EBB00A3F2DC /* UIImage+ColorAtPixel.m */,
 				46E889A11915430900A3F2DC /* SettingsView.h */,
 				46E889A21915430900A3F2DC /* SettingsView.m */,
-				D76859A11914BB9300ACCADA /* BeaconViewController.m */,
+				46E889A41915449900A3F2DC /* SettingsView.xib */,
 				D76859A31914BB9300ACCADA /* Images.xcassets */,
 				D76859921914BB9300ACCADA /* Supporting Files */,
 			);
@@ -276,6 +294,7 @@
 				46E889A01915414200A3F2DC /* yellow_asset.png in Resources */,
 				46E8899D1915414200A3F2DC /* orange_asset.png in Resources */,
 				46E8899B1915414200A3F2DC /* button_03_asset.png in Resources */,
+				46E889A51915449900A3F2DC /* SettingsView.xib in Resources */,
 				46E8899C1915414200A3F2DC /* green_asset.png in Resources */,
 				46E8899F1915414200A3F2DC /* purple_asset.png in Resources */,
 				D768599F1914BB9300ACCADA /* Main.storyboard in Resources */,
@@ -299,9 +318,12 @@
 			files = (
 				D76859C81914E5A000ACCADA /* BeaconMonitoringViewController.m in Sources */,
 				D76859C51914DB4200ACCADA /* BeaconCalibrationCalculator.m in Sources */,
+				46E889A819154A6E00A3F2DC /* MessagesViewController.m in Sources */,
+				46E889AB19154EBB00A3F2DC /* UIImage+ColorAtPixel.m in Sources */,
 				D76859A21914BB9300ACCADA /* BeaconViewController.m in Sources */,
 				D76859C21914DA3B00ACCADA /* BeaconDefaults.m in Sources */,
 				D768599C1914BB9300ACCADA /* BeaconAppDelegate.m in Sources */,
+				46E889AE19155B5600A3F2DC /* MessageTextField.m in Sources */,
 				D76859981914BB9300ACCADA /* main.m in Sources */,
 				46E889A31915430900A3F2DC /* SettingsView.m in Sources */,
 			);

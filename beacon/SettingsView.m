@@ -7,6 +7,8 @@
 //
 
 #import "SettingsView.h"
+#import "UIImage+ColorAtPixel.h"
+#import "BeaconViewController.h"
 
 @interface SettingsView()
 
@@ -19,6 +21,21 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor blackColor];
+        self.alpha = .5;
+        self.opaque = NO;
+        
+    }
+    return self;
+}
+//
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
+        
+        self.opaque = NO;
+
         // Initialization code
     }
     return self;
@@ -34,4 +51,20 @@
 }
 */
 
+- (IBAction)changeColor:(id)sender {
+    
+    UIColor *color = [[[(UIButton *)sender imageView] image] colorAtPixel:CGPointMake(5, 5)];
+    
+    [self.parent changeBackgroundColorTo:color];
+    
+}
+
+- (IBAction)toggleMessages:(id)sender {
+    if (self.parent.listenEnabledSwitch) {
+        [self.parent.listenEnabledSwitch setOn:NO];
+    } else {
+        [self.parent.listenEnabledSwitch setOn:YES];
+    }
+    
+}
 @end

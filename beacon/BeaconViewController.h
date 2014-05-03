@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MessageTextField.h"
 
 @interface BeaconViewController : UIViewController
+
+- (void)changeBackgroundColorTo:(UIColor *)color;
+
+
+@property (nonatomic, weak) IBOutlet UISwitch *listenEnabledSwitch;
+
+@property (weak, nonatomic) IBOutlet MessageTextField *textField;
 
 @end
