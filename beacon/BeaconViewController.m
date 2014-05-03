@@ -78,6 +78,8 @@ CLBeaconRegion *region = nil;
 {
     [super viewWillAppear:animated];
     
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
     if (!peripheralManager)
     {
         peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
@@ -93,6 +95,8 @@ CLBeaconRegion *region = nil;
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
     
     peripheralManager.delegate = nil;
 }

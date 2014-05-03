@@ -14,6 +14,7 @@
 		46E8899E1915414200A3F2DC /* pink_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889971915414200A3F2DC /* pink_asset.png */; };
 		46E8899F1915414200A3F2DC /* purple_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889981915414200A3F2DC /* purple_asset.png */; };
 		46E889A01915414200A3F2DC /* yellow_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 46E889991915414200A3F2DC /* yellow_asset.png */; };
+		46E889A31915430900A3F2DC /* SettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E889A21915430900A3F2DC /* SettingsView.m */; };
 		D768598C1914BB9300ACCADA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598B1914BB9300ACCADA /* Foundation.framework */; };
 		D768598E1914BB9300ACCADA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598D1914BB9300ACCADA /* CoreGraphics.framework */; };
 		D76859901914BB9300ACCADA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598F1914BB9300ACCADA /* UIKit.framework */; };
@@ -51,6 +52,8 @@
 		46E889971915414200A3F2DC /* pink_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_asset.png; sourceTree = "<group>"; };
 		46E889981915414200A3F2DC /* purple_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple_asset.png; sourceTree = "<group>"; };
 		46E889991915414200A3F2DC /* yellow_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_asset.png; sourceTree = "<group>"; };
+		46E889A11915430900A3F2DC /* SettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsView.h; sourceTree = "<group>"; };
+		46E889A21915430900A3F2DC /* SettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsView.m; sourceTree = "<group>"; };
 		D76859881914BB9300ACCADA /* beacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D768598B1914BB9300ACCADA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D768598D1914BB9300ACCADA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -152,6 +155,8 @@
 				D76859C11914DA3B00ACCADA /* BeaconDefaults.m */,
 				D768599D1914BB9300ACCADA /* Main.storyboard */,
 				D76859A01914BB9300ACCADA /* BeaconViewController.h */,
+				46E889A11915430900A3F2DC /* SettingsView.h */,
+				46E889A21915430900A3F2DC /* SettingsView.m */,
 				D76859A11914BB9300ACCADA /* BeaconViewController.m */,
 				D76859A31914BB9300ACCADA /* Images.xcassets */,
 				D76859921914BB9300ACCADA /* Supporting Files */,
@@ -298,6 +303,7 @@
 				D76859C21914DA3B00ACCADA /* BeaconDefaults.m in Sources */,
 				D768599C1914BB9300ACCADA /* BeaconAppDelegate.m in Sources */,
 				D76859981914BB9300ACCADA /* main.m in Sources */,
+				46E889A31915430900A3F2DC /* SettingsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

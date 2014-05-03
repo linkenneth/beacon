@@ -127,12 +127,18 @@
 {
     [super viewWillAppear:animated];
     
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
     self.uuidTextField.text = [self.uuid UUIDString];
     
 //    self.enabledSwitch.on = self.enabled;
     self.notifyOnEntrySwitch.on = self.notifyOnEntry;
     self.notifyOnExitSwitch.on = self.notifyOnExit;
     self.notifyOnDisplaySwitch.on = self.notifyOnDisplay;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 #pragma mark - Toggling state
