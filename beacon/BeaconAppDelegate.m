@@ -14,6 +14,7 @@
 @property (nonatomic) BOOL didSeeBeacon;
 @property (nonatomic, strong) NSMutableSet *messagesSeen;
 
+
 @end
 
 
@@ -28,6 +29,8 @@
     self.locationManager.delegate = self;
     self.messagesSeen = [[NSMutableSet alloc] init];
     self.didSeeBeacon = NO;
+    
+    self.messages = [[NSMutableArray alloc] init];
     return YES;
 }
 
@@ -96,27 +99,34 @@
             
             NSNumber *msgIdNum = beacon.major;
             
-            if (![self.messagesSeen containsObject:msgIdNum]) {
-                NSURLSession *session = [NSURLSession sharedSession];
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://beacon-of-hope-server.herokuapp.com/%u", [msgIdNum unsignedShortValue]]];
-                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
-                                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-                
-                [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if (CLProximityUnknown < beacon.proximity < CLProximityFar) {
+                if (![self.messagesSeen containsObject:msgIdNum]) {
+                    NSURLSession *session = [NSURLSession sharedSession];
+                    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://beacon-of-hope-server.herokuapp.com/%u", [msgIdNum unsignedShortValue]]];
+                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
                     
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        notification.alertBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                        /*
-                         If the application is in the foreground, it will get a callback to application:didReceiveLocalNotification:.
-                         If it's not, iOS will display the notification to the user.
-                         */
-                        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+                    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                         
-                        [self.messagesSeen addObject:msgIdNum];
-                    });
-                }] resume];
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                            NSDate *date = [NSDate date];
+                            notification.alertBody = message;
+                            /*
+                             If the application is in the foreground, it will get a callback to application:didReceiveLocalNotification:.
+                             If it's not, iOS will display the notification to the user.
+                             */
+                            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+                            
+                            [self.messagesSeen addObject:msgIdNum];
+                            
+                            [self.messages addObject:@[message, date]];
+                        });
+                    }] resume];
+                }
             }
+            
             
 
         }

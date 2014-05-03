@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface MessagesViewController : UITableViewController
 
+
+- (void)setBackgroundColor:(UIColor *)color;
 @end

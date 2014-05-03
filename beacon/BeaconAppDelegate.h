@@ -12,4 +12,7 @@
 
 @property (nonatomic) UIWindow *window;
 
+@property (nonatomic, strong) NSMutableArray *messages;
+
+
 @end

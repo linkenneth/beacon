@@ -128,8 +128,10 @@ CLBeaconRegion *region = nil;
         
         self.settingsControlOpen = NO;
     } else {
+        
         MessagesViewController *messageViewController = [[MessagesViewController alloc] initWithStyle:UITableViewStylePlain];
         
+        [messageViewController setBackgroundColor:self.view.backgroundColor];
         [self.navigationController pushViewController:messageViewController animated:YES];
     }
 }
