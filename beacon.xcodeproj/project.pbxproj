@@ -12,15 +12,18 @@
 		D76859901914BB9300ACCADA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598F1914BB9300ACCADA /* UIKit.framework */; };
 		D76859961914BB9300ACCADA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D76859941914BB9300ACCADA /* InfoPlist.strings */; };
 		D76859981914BB9300ACCADA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D76859971914BB9300ACCADA /* main.m */; };
-		D768599C1914BB9300ACCADA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D768599B1914BB9300ACCADA /* AppDelegate.m */; };
+		D768599C1914BB9300ACCADA /* BeaconAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D768599B1914BB9300ACCADA /* BeaconAppDelegate.m */; };
 		D768599F1914BB9300ACCADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D768599D1914BB9300ACCADA /* Main.storyboard */; };
-		D76859A21914BB9300ACCADA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76859A11914BB9300ACCADA /* ViewController.m */; };
+		D76859A21914BB9300ACCADA /* BeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76859A11914BB9300ACCADA /* BeaconViewController.m */; };
 		D76859A41914BB9300ACCADA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D76859A31914BB9300ACCADA /* Images.xcassets */; };
 		D76859AB1914BB9300ACCADA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76859AA1914BB9300ACCADA /* XCTest.framework */; };
 		D76859AC1914BB9300ACCADA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598B1914BB9300ACCADA /* Foundation.framework */; };
 		D76859AD1914BB9300ACCADA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D768598F1914BB9300ACCADA /* UIKit.framework */; };
 		D76859B51914BB9300ACCADA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D76859B31914BB9300ACCADA /* InfoPlist.strings */; };
 		D76859B71914BB9300ACCADA /* beaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D76859B61914BB9300ACCADA /* beaconTests.m */; };
+		D76859C21914DA3B00ACCADA /* BeaconDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D76859C11914DA3B00ACCADA /* BeaconDefaults.m */; };
+		D76859C51914DB4200ACCADA /* BeaconCalibrationCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = D76859C41914DB4200ACCADA /* BeaconCalibrationCalculator.m */; };
+		D76859C81914E5A000ACCADA /* BeaconMonitoringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76859C71914E5A000ACCADA /* BeaconMonitoringViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,17 +45,23 @@
 		D76859951914BB9300ACCADA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D76859971914BB9300ACCADA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D76859991914BB9300ACCADA /* beacon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "beacon-Prefix.pch"; sourceTree = "<group>"; };
-		D768599A1914BB9300ACCADA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D768599B1914BB9300ACCADA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D768599A1914BB9300ACCADA /* BeaconAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeaconAppDelegate.h; sourceTree = "<group>"; };
+		D768599B1914BB9300ACCADA /* BeaconAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeaconAppDelegate.m; sourceTree = "<group>"; };
 		D768599E1914BB9300ACCADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D76859A01914BB9300ACCADA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D76859A11914BB9300ACCADA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D76859A01914BB9300ACCADA /* BeaconViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeaconViewController.h; sourceTree = "<group>"; };
+		D76859A11914BB9300ACCADA /* BeaconViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeaconViewController.m; sourceTree = "<group>"; };
 		D76859A31914BB9300ACCADA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D76859A91914BB9300ACCADA /* beaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = beaconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D76859AA1914BB9300ACCADA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D76859B21914BB9300ACCADA /* beaconTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "beaconTests-Info.plist"; sourceTree = "<group>"; };
 		D76859B41914BB9300ACCADA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D76859B61914BB9300ACCADA /* beaconTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = beaconTests.m; sourceTree = "<group>"; };
+		D76859C01914DA3B00ACCADA /* BeaconDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconDefaults.h; sourceTree = "<group>"; };
+		D76859C11914DA3B00ACCADA /* BeaconDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconDefaults.m; sourceTree = "<group>"; };
+		D76859C31914DB4200ACCADA /* BeaconCalibrationCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconCalibrationCalculator.h; sourceTree = "<group>"; };
+		D76859C41914DB4200ACCADA /* BeaconCalibrationCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconCalibrationCalculator.m; sourceTree = "<group>"; };
+		D76859C61914E5A000ACCADA /* BeaconMonitoringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconMonitoringViewController.h; sourceTree = "<group>"; };
+		D76859C71914E5A000ACCADA /* BeaconMonitoringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconMonitoringViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +121,17 @@
 		D76859911914BB9300ACCADA /* beacon */ = {
 			isa = PBXGroup;
 			children = (
-				D768599A1914BB9300ACCADA /* AppDelegate.h */,
-				D768599B1914BB9300ACCADA /* AppDelegate.m */,
+				D768599A1914BB9300ACCADA /* BeaconAppDelegate.h */,
+				D768599B1914BB9300ACCADA /* BeaconAppDelegate.m */,
+				D76859C31914DB4200ACCADA /* BeaconCalibrationCalculator.h */,
+				D76859C41914DB4200ACCADA /* BeaconCalibrationCalculator.m */,
+				D76859C61914E5A000ACCADA /* BeaconMonitoringViewController.h */,
+				D76859C71914E5A000ACCADA /* BeaconMonitoringViewController.m */,
+				D76859C01914DA3B00ACCADA /* BeaconDefaults.h */,
+				D76859C11914DA3B00ACCADA /* BeaconDefaults.m */,
 				D768599D1914BB9300ACCADA /* Main.storyboard */,
-				D76859A01914BB9300ACCADA /* ViewController.h */,
-				D76859A11914BB9300ACCADA /* ViewController.m */,
+				D76859A01914BB9300ACCADA /* BeaconViewController.h */,
+				D76859A11914BB9300ACCADA /* BeaconViewController.m */,
 				D76859A31914BB9300ACCADA /* Images.xcassets */,
 				D76859921914BB9300ACCADA /* Supporting Files */,
 			);
@@ -249,8 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D76859A21914BB9300ACCADA /* ViewController.m in Sources */,
-				D768599C1914BB9300ACCADA /* AppDelegate.m in Sources */,
+				D76859C81914E5A000ACCADA /* BeaconMonitoringViewController.m in Sources */,
+				D76859C51914DB4200ACCADA /* BeaconCalibrationCalculator.m in Sources */,
+				D76859A21914BB9300ACCADA /* BeaconViewController.m in Sources */,
+				D76859C21914DA3B00ACCADA /* BeaconDefaults.m in Sources */,
+				D768599C1914BB9300ACCADA /* BeaconAppDelegate.m in Sources */,
 				D76859981914BB9300ACCADA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +474,7 @@
 				D76859BC1914BB9300ACCADA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D76859BD1914BB9300ACCADA /* Build configuration list for PBXNativeTarget "beaconTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +483,7 @@
 				D76859BF1914BB9300ACCADA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

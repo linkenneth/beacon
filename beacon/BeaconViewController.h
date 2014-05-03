@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  BeaconViewController.h
 //  beacon
 //
 //  Created by echeng on 5/2/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface BeaconViewController : UIViewController
 
 @end
